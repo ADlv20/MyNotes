@@ -2,6 +2,26 @@ package DataStructure;
 
 public class CustomLinkedList {
 
+    private Node head;
+    private Node tail;
+    private int size;
+
+    public CustomLinkedList(){
+        this.size = 0;
+    }
+
+    public void insertBeginning(int value){
+        Node node = new Node(value);
+        node.next = head;
+        head = node;
+
+        if (tail == null) {
+            tail = head;
+        }
+
+        size += 1;
+    }
+
     public class Node{
 
         private int data;
@@ -32,5 +52,4 @@ public class CustomLinkedList {
             this.next = next;
         }
     }
-
 }
