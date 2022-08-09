@@ -10,18 +10,6 @@ public class CustomLinkedList {
         this.size = 0;
     }
 
-    public void insertBeginning(int value){
-        Node node = new Node(value);
-        node.next = head;
-        head = node;
-
-        if (tail == null) {
-            tail = head;
-        }
-
-        size += 1;
-    }
-
     public class Node{
 
         private int data;
@@ -29,27 +17,47 @@ public class CustomLinkedList {
 
         public Node(int data) {
             this.data = data;
-        }
-
-        public Node(int data, Node next) {
-            this.data = data;
-            this.next = next;
-        }
-
-        public int getData() {
-            return data;
-        }
-
-        public void setData(int data) {
-            this.data = data;
-        }
-
-        public Node getNext() {
-            return next;
-        }
-
-        public void setNext(Node next) {
-            this.next = next;
+            this.next = null;
         }
     }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void insertBeginning(int value){
+        Node node = new Node(value);
+
+        node.next = head;
+        head = node;
+
+        if (tail == null) {
+            tail = head;
+        }
+        size += 1;
+    }
+
+    public void printList(){
+        Node node = head;
+
+        if (head == null){
+            return;
+        }
+
+        while (node != null){
+            System.out.print(node.data + " -> ");
+            node = node.next;
+        }
+        System.out.print("Null");
+    }
+
+    public static void main(String[] args) {
+        CustomLinkedList list = new CustomLinkedList();
+        list.insertBeginning(5);
+        list.insertBeginning(10);
+        list.insertBeginning(15);
+        System.out.println(list.getSize());
+        list.printList();
+    }
+
 }
