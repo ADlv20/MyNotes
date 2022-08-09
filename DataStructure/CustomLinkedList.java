@@ -3,16 +3,15 @@ package DataStructure;
 public class CustomLinkedList {
 
     private Node head;
-    private Node tail;
     private int size;
 
     public CustomLinkedList(){
         this.size = 0;
     }
 
-    public class Node{
+    public static class Node{
 
-        private int data;
+        private final int data;
         private Node next;
 
         public Node(int data) {
@@ -27,23 +26,23 @@ public class CustomLinkedList {
 
     public void insertFirst(int value){
         Node node = new Node(value);
+        size++ ;
         if (head == null){
             head = node;
             return;
         }
         node.next = head;
         head = node;
-        size++ ;
     }
 
     public void insertLast(int value){
         Node node = new Node(value);
         Node currentNode;
+        size++;
         if (head == null){
             head = node;
             return;
         }
-        size++;
         currentNode = head;
         while (currentNode.next != null) {
             currentNode = currentNode.next;
@@ -71,7 +70,7 @@ public class CustomLinkedList {
         list.insertFirst(10);
         list.insertFirst(15);
         list.insertLast(200);
+        System.out.println(list.getSize());
         list.printList();
     }
-
 }
