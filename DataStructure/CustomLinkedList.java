@@ -25,25 +25,39 @@ public class CustomLinkedList {
         return size;
     }
 
-    public void insertBeginning(int value){
+    public void insertFirst(int value){
         Node node = new Node(value);
-
+        if (head == null){
+            head = node;
+            return;
+        }
         node.next = head;
         head = node;
+        size++ ;
+    }
 
-        if (tail == null) {
-            tail = head;
+    public void insertLast(int value){
+        Node node = new Node(value);
+        Node currentNode;
+        if (head == null){
+            head = node;
+            return;
         }
-        size += 1;
+        size++;
+        currentNode = head;
+        while (currentNode.next != null) {
+            currentNode = currentNode.next;
+        }
+
+        currentNode.next = node;
     }
 
     public void printList(){
         Node node = head;
-
         if (head == null){
+            System.out.println("Empty Linked List");
             return;
         }
-
         while (node != null){
             System.out.print(node.data + " -> ");
             node = node.next;
@@ -53,10 +67,10 @@ public class CustomLinkedList {
 
     public static void main(String[] args) {
         CustomLinkedList list = new CustomLinkedList();
-        list.insertBeginning(5);
-        list.insertBeginning(10);
-        list.insertBeginning(15);
-        System.out.println(list.getSize());
+        list.insertFirst(5);
+        list.insertFirst(10);
+        list.insertFirst(15);
+        list.insertLast(200);
         list.printList();
     }
 
