@@ -1,4 +1,4 @@
-package Questions;
+package Questions.CP;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
@@ -49,23 +49,6 @@ It is guaranteed that s is a valid roman numeral in the range [1, 3999].
 
 */
 public class RomanToInteger {
-
-    /**First Try
-     public static void main(String[] args) {
-        RomanToInteger rti = new RomanToInteger();
-        int num = rti.romanToInteger("I");
-        System.out.println(num);
-    }
-    public int romanToInteger(@NotNull String s){
-        int num = 0;
-        for (int i=0; i < s.length(); i++){
-            if (s.charAt(i) == 'V' && s.charAt(i-1) == 'I'){
-                num += 5;
-                num--;
-            }
-        }
-        return num;
-    }*/
 
     public static void main(String[] args) {
         int result = romanToInt("XV");
