@@ -161,19 +161,15 @@ public class CustomLinkedList {
 
     // Leet Code 817. Linked List Components
     public int numComponents(Node head, int[] nums) {
-
         int m = nums.length;
-
         if(m == 0) {
             return 0;
         }
-
         boolean[] exists = new boolean[100001];
 
-        for(int i=0; i<m; i++){
-            exists[nums[i]] = true;
+        for (int num : nums) {
+            exists[num] = true;
         }
-
         int ans = 0;
         boolean prevPresent = false;
         while(head != null) {
@@ -184,7 +180,6 @@ public class CustomLinkedList {
             else prevPresent = false;
             head = head.next;
         }
-
         return ans;
     }
 }
